@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container" >
+<!--  <div class="">-->
+<!--      <img class="my_image my_image_padding" src="{% static 'image/login.jpg' %}" alt="category" width="950px;" height="300px;">-->
+<!--</div>-->
+    <form action="" method="post" >
+      <div class="formcontainer" >{% csrf_token %}
+      <div class="container">
+        <label ><strong>Username</strong></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label ><strong>Password</strong></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+      </div>
+      <button type="submit">Login</button>
+<!--      <div class="container" style="background-color: #eee">-->
+<!--        <label style="padding-left: 15px">-->
+<!--        <input type="checkbox"  checked="checked" name="remember"> Remember me-->
+<!--        </label>-->
+<!--        <span class="psw"><a href="#"> Forgot password?</a></span>-->
+<!--      </div>-->
+      </div>
+    </form>
+</div>
+  {% endblock %}

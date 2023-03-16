@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary  bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'home' %}">School Store</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarScroll">
+      <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>-->
+<!--        </li>-->
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="#">{{user.username}}</a></li>
+        <li><a class="nav-link" href="purchase">Place order</a></li>
+        <li class="nav-item"><a class="nav-link" href="{% url 'logout' %}">Log Out</a></li>
+
+        {% else %}
+        <li class="nav-item">
+<!--          <button class="btn btn-outline-success"  type="submit">Login</button>-->
+          <a class="nav-link" href="{% url 'login' %}">Login</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}">Registration</a>
+        </li>
+        {% endif %}
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Departments
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Computer_science">Computer Science</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Applied_science">Applied Science</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Management">Management Studies</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Bachelor_of_Commerce">Commerce</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="https://en.wikipedia.org/wiki/Humanities">Humanities</a></li>
+          </ul>
+        </li>
+
+      </ul>
+<!--      <form class="d-flex" role="search">-->
+<!--        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">-->
+<!--        <button class="btn btn-outline-success" type="submit">Search</button>-->
+<!--      </form>-->
+    </div>
+  </div>
+</nav>

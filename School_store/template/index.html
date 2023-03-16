@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!--<div>-->
+<!--    <img class="my_image my_image_padding" src="{% static 'image/store_banner.jpg' %}" alt="category" width="950px;" height="300px;">-->
+<!--</div>-->
+<div class="container">
+    <div class="row">
+       <div class="col-md-4">
+          <div class="card" style="height:350px; width:300px;">
+             <img class="card-img-top" src="{% static 'image/div1.jpg' %}">
+          </div>
+       </div>
+        <div class="col-md-4">
+          <div class="card" style="height:350px; width:300px;" >
+             <img class="card-img-top" src="{% static 'image/div2.jpg' %}">
+          </div>
+       </div>
+        <div class="col-md-4">
+          <div class="card" style="height:350px; width:300px;" >
+             <img class="card-img-top" src="{% static 'image/div3.jpg' %}">
+          </div>
+       </div>
+    </div>
+</div>
+<div class="container">
+{% if user.is_authenticated %}
+<div class="card" style="display: flex; justify-content: center; align-items: center;" >
+  <button onclick="location.href='{% url 'logout' %}'" style="padding: 10px 20px; text-align: center; text-decoration: none; width:100px; display: inline-block; font-size: 16px; margin: 4px 2px; cursor: pointer; border-radius: 8px;">Log out</button>
+</div>
+{% else %}
+<div class="card" style="display: flex; justify-content: center; align-items: center;" >
+  <button style="padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 16px; margin: 4px 2px;  width:100px; cursor: pointer; border-radius: 8px;" class="" onclick="location.href='{% url 'login' %}'"> Log In</button>
+</div>{% endif %}
+</div>
+{% endblock %}
+

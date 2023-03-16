@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+    <form method="post">
+<!--      <h1>SIGN UP</h1>-->
+<!--      <div class="icon">-->
+<!--        <i class="fas fa-user-circle"></i>-->
+<!--      </div>-->{% csrf_token %}
+      <div class="formcontainer">
+      <div class="container">
+        <label ><strong>Username</strong></label>
+        <input type="text" placeholder="Enter Username" name="user_name" required>
+        <label ><strong>Password</strong></label>
+        <input type="password" placeholder="Enter Password" name="user_password" required>
+        <label ><strong>Confirm Password</strong></label>
+        <input type="password" placeholder="Confirm Password" name="confirm_password" required>
+      </div>
+      <button type="submit"><strong>SIGN UP</strong></button>
+<!--      <div class="container" style="background-color: #eee">-->
+<!--        <label style="padding-left: 15px">-->
+<!--        <input type="checkbox"  checked="checked" name="remember"> Remember me-->
+<!--        </label>-->
+<!--        <span class="psw"><a href="#">Forgot password?</a></span>-->
+<!--      </div>-->
+      </div>
+    </form>
+{% endblock %}

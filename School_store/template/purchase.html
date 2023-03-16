@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="container">
+    <div class="main-block " style="position: absolute; top:70px; width:650px; heigth :850px; ">
+    <form action="" method="post">
+{% csrf_token %}
+
+      <fieldset>
+        <legend>
+<!--          <h3>Personal Details</h3>-->
+        </legend>
+        <div  class="personal-details">
+          <div>
+            <div><label>Name*</label><input type="text" name="name" required></div>
+            <div><label>Phone*</label><input type="text" name="phone" required></div>
+            <div><label>Address</label><input type="text" name="address"></div>
+            <div><label>Age*</label><input type="text" name="age" required></div>
+            <div><label>Email*</label><input type="text"  name="email" required></div>
+          </div>
+          <div>
+            <fieldset>
+            <div>
+              <label>Gender*</label>
+              <div class="gender">
+                <input type="radio" value="male" id="male" name="gender" />
+                <label for="male" class="radio">Male</label>
+                <input type="radio" value="female" id="female" name="gender" />
+                <label for="female" class="radio">Female</label>
+                <input type="radio" value="others" id="other" name="gender" />
+                <label for="female" class="radio">Others</label>
+              </div>
+            </div></fieldset>
+            <fieldset>
+            <div class="birthdate">
+              <label>Birthdate*</label>
+                <input type="date" name="dob" required>
+            </div>
+            </fieldset>
+            <fieldset>
+              <label for="department">Department:</label>
+              <select id="department" name="department" required>
+                <option value="">-- Please Select --</option>
+                <optgroup label="Computer Science">
+                  <option value="data_science">Data Science</option>
+                  <option value="artificial_intelligence">Artificial Intelligence</option>
+                  <option value="artificial_intelligence">Machine Learning</option>
+                </optgroup>
+                <optgroup label="Applied Science">
+                  <option value="BSc_Physics">BSc Physics</option>
+                  <option value="BSc_Chemistry">BSc Chemistry</option>
+                  <option value="BSc_Biology">BSc Biology</option>
+                </optgroup>
+                <optgroup label="Management Studies">
+                  <option value="BBA">BBA</option>
+                  <option value="MBA">MBA</option>
+                </optgroup>
+                <optgroup label="Commerce">
+                  <option value="BCom">BCom</option>
+                  <option value="MCom">MCom</option>
+                  <option value="Statitics">Statitics</option>
+                </optgroup>
+                <optgroup label="Humanities">
+                  <option value="History">History</option>
+                  <option value="Economics">Economics</option>
+                  <option value="Political_Science">Political Science</option>
+                </optgroup>
+              </select>
+            </fieldset>
+            <div  class="terms-mailing">
+               <div class="gender checkbox">
+
+                  <input type="checkbox" name="item" value="notebook" ><label>Notebook</label>
+
+                  <input type="checkbox" name="item" value="pen" ><label>Pen</label>
+
+                  <input type="checkbox" name="item" value="epaper" ><label>Exam paper</label>
+
+                  <input type="checkbox" name="item" value="inst_box" ><label>Instrument box</label>
+
+                  <input type="checkbox" name="item" value="calculator" ><label>Calculator</label>
+               </div>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+      <label for="purpose">Purpose:</label>
+  <select id="purpose" name="purpose" required>
+    <option value="">-- Please Select --</option>
+    <option value="return">Return Item</option>
+    <option value="order">Place Order</option>
+  </select><br>
+
+      <button type="submit" href="">Submit</button>
+      <button type="button" onclick="location.href='{% url 'logout' %}'">Log Out</button>
+    </form>
+    </div>
+    </div>{% endblock %}
